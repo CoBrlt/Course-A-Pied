@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course à pied</title>
+</head>
+<body>
+    <div id="affichage_vma">
+        <label for="vma">VMA :
+            <input type="number" id="vma_input" name="vma">
+        </label>
+    </div>
+
+    <div id="calculator">
+        <label for="allure">Vitesse (km/h):
+            <input type="number" id="allure_input" name="allure">
+        </label>
+
+        <label for="distance">Mètres (m):
+            <input type="number" id="distance_input" name="distance">
+        </label>
+
+        <label for="duree">Temps (min:sec):
+            <input type="number" id="duree_min_input" name="duree">:<input type="number" id="duree_sec_input" name="duree">
+        </label>
+        <p id="result"></p>
+    </div>
+
+    <div id="menu">
+        <div id="chrono_button" class="menu_button">
+            <img src="./images/rien.png" href="rien"/>
+        </div>
+
+        <div id="duree_button" class="menu_button">
+            <img src="./images/rien.png" href="rien"/>
+        </div>
+
+        <div id="vitesse_button" class="menu_button">
+            <img src="./images/rien.png" href="rien"/>
+        </div>
+
+        <div id="distance_button" class="menu_button">
+            <img src="./images/rien.png" href="rien"/>
+        </div>
+    </div>
+
+    <div id="chrono">
+        <label for="duree_chrono">Duree (min:sec):
+            <input type="number" id="chrono_min_input" name="chrono_min">:<input type="number" id="chrono_sec_input" name="chrono_sec">
+        </label>
+
+        <div id="start_pause_button" class="start_pause_button">
+            <img src="./images/rien.png" href="rien"/>
+        </div>
+
+        <div id="reset_tour_button" class="reset_tour_button">
+            <img src="./images/rien.png" href="rien"/>
+        </div>
+        <p id="temps_restant"></p>
+    </div>
+
+    
+
+   
+</body>
+</html>
