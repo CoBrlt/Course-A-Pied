@@ -1,0 +1,70 @@
+:root{
+  --couleur-rouge-fonce: rgb(192,0,0);
+  --couleur-rouge-clair: rgb(246,217,217);
+  --couleur-vert-fonce: rgb(112,173,71);
+  --couleur-vert-clair: rgb(219,234,209);
+  --couleur-bleu-fonce: rgb(46,117,182);
+  --couleur-bleu-clair: rgb(214,230,244);
+  --couleur-jaune-fonce: rgb(191,144,0);
+  --couleur-jaune-clair: rgb(255,239,191);
+  --couleur-violet-fonce: rgb(112,48,160);
+  --couleur-violet-clair: rgb(234,224,241);
+}
+body{
+    justify-content: center;
+    font-family: 'Agency FB', sans-serif;
+    color: black;
+}
+
+img {
+    width: 15%;
+    height: 15%;
+}
+
+h1 {
+  text-align: center;
+  font-size: 50px;
+  letter-spacing: 5px;
+}
+
+div {
+  display: flex;
+  margin: 10px;
+  justify-content: center;
+}
+
+label{
+  font-size: 30px;
+}
+
+input{
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  width: 16%;
+}
+
+
+.menu_button img{
+    width: 15%;
+    height: 15%;
+    float: left;
+    display: flex;
+    justify-content: center; /*Don't do anything? These image don't want to be centered...*/
+    margin-right: 10px;
+    padding: 5px;
+    }
+
+    /*Put the button in the bottom right corner, not matter where we scroll at
+    (well somehow it's left but why not after all...)*/
+    #back_button {
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        margin: 10px;
+    }
+
+    #chrono img{
+    float: left;
+    }
