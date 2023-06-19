@@ -10,13 +10,35 @@
   --couleur-violet-fonce: rgb(112,48,160);
   --couleur-violet-clair: rgb(234,224,241);
 }
+body{
+    justify-content: center;
+    font-family: 'Agency FB', sans-serif;
+    color: black;
+}
 
 h1 {
   text-align: center;
   font-size: 50px;
-  font-family: 'agency-fb';
-  color: black;
-  letter-spacing: 3px;
+}
+
+img {
+    width: 15%;
+    height: 15%;
+}
+
+/* I want centered div */
+div {
+    display: flex;
+    margin: 10px;
+    justify-content: center;
+}
+
+input{
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 18   0px;
 }
 
 .menu_button img{
