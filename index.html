@@ -11,35 +11,44 @@
 
 <body>
 
-    <h1>MENU</h1>
+    <div id="titre_menu" class="titre"> <h1>COURSE A PIED</h1> </div>
+    <div id="titre_chrono" class="titre"> <h1>CHRONO</h1> </div>
+    <div id="titre_duree" class="titre"> <h1>CALCUL D'UNE DUREE</h1> </div>
+    <div id="titre_vitesse" class="titre"> <h1>CALCUL D'UNE VITESSE</h1> </div>
+    <div id="titre_distance" class="titre"> <h1>CALCUL D'UNE DISTANCE</h1> </div>
+    <div id="titre_infos" class="titre"> <h1>INFORMATIONS</h1> </div>
 
-    <div id="affichage_vma" >
+    <div id="affichage_vma">
         <label for="vma">VMA :
             <input type="number" id="vma_input" name="vma">
         </label>
     </div>
 
     <div id="calculator">
+
         <div id="allure_label_input">
-            <label for="allure">Vitesse (km/h):
+            <label for="allure">Allure (min/km):
                 <input type="number" id="allure_input" name="allure">
             </label>
         </div>
+
         <div id="distance_label_input">
-            <label for="distance">Mètres (m):
+            <label for="distance">Distance (m):
                 <input type="number" id="distance_input" name="distance">
             </label>
         </div>
 
         <div id="duree_label_input">
-            <label for="duree" >Temps (min:sec):
+            <label for="duree" >Durée (min:sec):
                 <input type="number" id="duree_min_input" name="duree">:<input type="number" id="duree_sec_input" name="duree">
             </label>
         </div>
         <p id="result"></p>
+
     </div>
 
     <div id="menu">
+        
         <div id="chrono_button" class="menu_button">
             <img src="./images/chrono.png" href="rien"/>
         </div>
@@ -55,6 +64,10 @@
         <div id="distance_button" class="menu_button">
             <img src="./images/distance.png" href="rien"/>
         </div>
+
+        <div id="infos_button" class="menu_button">
+            <img src="./images/infos.png" href="rien"/>
+        </div>
     </div>
 
     <div id="chrono">
@@ -67,7 +80,7 @@
         </div>
 
         <div id="reset_tour_button" class="reset_tour_button">
-            <img src="./images/rien.png" href="rien"/>
+            <img src="./images/reset.png" href="rien"/>
         </div>
         <p id="temps_restant"></p>
     </div>
