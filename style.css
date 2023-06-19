@@ -42,7 +42,7 @@ input{
   border: 1px solid #ccc;
   border-radius: 5px;
   font-size: 16px;
-  width: 18   0px;
+  width: 16%;
 }
 
 
@@ -63,4 +63,8 @@ input{
         bottom: 0;
         right: 0;
         margin: 10px;
+    }
+
+    #chrono img{
+    float: left;
     }
