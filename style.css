@@ -10,61 +10,72 @@
   --couleur-violet-fonce: rgb(112,48,160);
   --couleur-violet-clair: rgb(234,224,241);
 }
+
 body{
-    justify-content: center;
-    font-family: 'Agency FB', sans-serif;
-    color: black;
+  font-family: 'Agency FB', sans-serif;
+  color: black;
+  font-size: 3vw;
+  font-weight: bold;
+  margin: 3vw;
+  text-align: center;
 }
 
+#titre_chrono {background-color: var(--couleur-rouge-clair);}
+#titre_duree {background-color: var(--couleur-jaune-clair);}
+#titre_vitesse {background-color: var(--couleur-bleu-clair);}
+#titre_distance {background-color: var(--couleur-vert-clair);}
+#titre_infos {background-color: var(--couleur-violet-clair);}
+
+
+
+
+
 img {
-    width: 15%;
-    height: 15%;
+  width: 7vw;
+  height: 7vw;
 }
 
 h1 {
   text-align: center;
-  font-size: 50px;
-  letter-spacing: 5px;
+  font-size: 5vw;
+  letter-spacing: 0.7vw;
 }
 
 div {
   display: flex;
-  margin: 10px;
-  justify-content: center;
-}
-
-label{
-  font-size: 30px;
+  margin: 2vw;
 }
 
 input{
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 16px;
+  background-color:#ccc;
+  padding: 1vw;
+  border: 2px solid black;
+  border-radius: 5vw;
+  font-size: 2vw;
   width: 16%;
 }
 
-
 .menu_button img{
-    width: 15%;
-    height: 15%;
-    float: left;
-    display: flex;
-    justify-content: center; /*Don't do anything? These image don't want to be centered...*/
-    margin-right: 10px;
-    padding: 5px;
-    }
+  width: 15vw;
+  height: 15vw;
+  float: left;
+  justify-content: center;
+  padding: 0.5vw;
+}
 
-    /*Put the button in the bottom right corner, not matter where we scroll at
-    (well somehow it's left but why not after all...)*/
-    #back_button {
-        position: fixed;
-        bottom: 0;
-        right: 0;
-        margin: 10px;
-    }
+/*Put the button in the bottom right corner, not matter where we scroll at
+(well somehow it's left but why not after all...)*/
+#back_button {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  margin: 4vw;
+}
 
-    #chrono img{
-    float: left;
-    }
+#chrono img{
+  width: 8vw;
+  height: 8vw;
+  float: right;
+  padding: 0.5vw;
+  margin-top: 3vw;
+}

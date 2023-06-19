@@ -11,18 +11,33 @@
 
 <body>
 
-    <div id="titre_menu" class="titre"> <h1>COURSE A PIED</h1> </div>
-    <div id="titre_chrono" class="titre"> <h1>CHRONO</h1> </div>
-    <div id="titre_duree" class="titre"> <h1>CALCUL D'UNE DUREE</h1> </div>
-    <div id="titre_vitesse" class="titre"> <h1>CALCUL D'UNE VITESSE</h1> </div>
-    <div id="titre_distance" class="titre"> <h1>CALCUL D'UNE DISTANCE</h1> </div>
-    <div id="titre_infos" class="titre"> <h1>INFORMATIONS</h1> </div>
+    <div id="titre_menu"> 
+        <h1>COURSE A PIED</h1> 
+    </div>
+    <div id="titre_chrono"> 
+        <h1>CHRONO</h1> 
+    </div>
+    <div id="titre_duree"> 
+        <h1>CALCUL D'UNE DUREE</h1> 
+    </div>
+    <div id="titre_vitesse"> 
+        <h1>CALCUL D'UNE VITESSE</h1> 
+    </div>
+    <div id="titre_distance"> 
+        <h1>CALCUL D'UNE DISTANCE</h1> 
+    </div>
+    <div id="titre_infos"> 
+        <h1>INFORMATIONS</h1> 
+    </div>
+
+
 
     <div id="affichage_vma">
         <label for="vma">VMA :
             <input type="number" id="vma_input" name="vma">
         </label>
     </div> 
+    
 
     <div id="calculator">
 
@@ -47,6 +62,7 @@
 
     </div>
 
+
     <div id="menu">
         
         <div id="chrono_button" class="menu_button">
@@ -68,24 +84,34 @@
         <div id="infos_button" class="menu_button">
             <img src="./images/infos.png" href="rien"/>
         </div>
+        
     </div>
 
-    <div id="chrono">
-        <label for="duree_chrono" id="chrono_label_input">Durée (min:sec):
-            <input type="number" id="chrono_min_input" name="chrono_min">:<input type="number" id="chrono_sec_input" name="chrono_sec">
-        </label>
+
+
+    <div id="chrono" class="menu_button">
+
+        <div id="chrono_label_input">
+            <label for="duree" >Durée (min:sec):
+                <input type="number" id="chrono_min_input" name="duree">:<input type="number" id="chrono_sec_input" name="chrono">
+            </label>
+        </div>
 
         <div id="start_pause_button" class="start_pause_button">
             <img src="./images/start_stop.png" href="rien"/>
         </div>
-        <div id="time">
 
-        </div>
         <div id="reset_tour_button" class="reset_tour_button">
             <img src="./images/reset.png" href="rien"/>
         </div>
         <p id="temps_restant"></p>
+        
+        <div id="time" class="chrono_affichage">
+        </div>
+
     </div>
+
+
 
     <div id="back_button">
         <img src="./images/back_menu.png" href="rien">

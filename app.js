@@ -18,8 +18,7 @@ function hide_all () {
     }
 }
 
-function display_by_id (id)
-{
+function display_by_id (id){
     console.log(id);
     const monElement = document.getElementById(id);
     monElement.style.display = "block";
@@ -30,8 +29,7 @@ function display_by_id (id)
     }
 }
 
-function hidden_by_id (id)
-{
+function hidden_by_id (id){
     document.getElementById(id).style.display = "none";
 }
 
@@ -41,27 +39,22 @@ function pad(number){
 
 function incrementTimer() {
     timer++;
-
     const numberMin = Math.floor(timer / 6000);
     const numberSec = parseInt((timer % 6000)/100);
     const numbercent = timer % 100;
     sec.innerHTML = pad(numberMin)+ ":" + pad(numberSec)+","+ pad(numbercent);
-    
-  }
+}
 
-function resetChrono()
-{
+function resetChrono(){
     if(isRunning) {
         isRunning = false;
         clearInterval(interval);
     }
     timer = 0;
     sec.innerHTML = "00:00";
-
 }
 
-function startChrono()
-{
+function startChrono(){
     if(isRunning) {
         isRunning = false;
         clearInterval(interval);
@@ -78,6 +71,7 @@ document.getElementById("chrono_button").addEventListener("click", function(){
     hide_all();
     display_by_id("titre_chrono");
     display_by_id("chrono");
+    sec.innerHTML = "00:00";
     display_by_id("back_button");
 });
 
@@ -108,6 +102,14 @@ document.getElementById("distance_button").addEventListener("click", function(){
     add_listener_distance();
 });
 
+document.getElementById("infos_button").addEventListener("click", function(){
+    hide_all();
+    //display des infos
+    display_by_id("titre_infos");
+    display_by_id("affichage_vma");
+    display_by_id("back_button");
+});
+
 document.getElementById("back_button").addEventListener("click", function(){
     hide_all();
     //display the menu
@@ -117,21 +119,15 @@ document.getElementById("back_button").addEventListener("click", function(){
 });
 
 //chrono
+document.getElementById("reset_tour_button").addEventListener("click", resetChrono);
 document.getElementById("start_pause_button").addEventListener("click", startChrono);
 
-document.getElementById("reset_tour_button").addEventListener("click", resetChrono);
-document.getElementById("infos_button").addEventListener("click", function(){
-    hide_all();
-    //display the menu
-    display_by_id("titre_infos");
-    display_by_id("affichage_vma");
-    display_by_id("back_button");
-});
+
 
 //display the menu
 display_by_id("titre_menu");
-display_by_id("menu");
 display_by_id("affichage_vma");
+display_by_id("menu");
 
 
 function add_listener_duree(){
@@ -160,6 +156,8 @@ function add_listener_duree(){
     });
 
 }
+
+
 function add_listener_vitesse(){
     document.getElementById("distance_input").addEventListener("change", function(){
         distance_text = document.getElementById("distance_input").value;
@@ -203,6 +201,8 @@ function add_listener_vitesse(){
         console.log(vitesse_text);
     });
 }
+
+
 function add_listener_distance(){
     document.getElementById("allure_input").addEventListener("change", function(){
         vitesse_text = document.getElementById("allure_input").value;
@@ -214,7 +214,6 @@ function add_listener_distance(){
         if(vitesse_text != "" && duree_min_text != "" && duree_sec_text != ""){
             distance_text = Math.round(parseInt(vitesse_text)*parseInt(duree_text)/3.6);
             document.getElementById("result").textContent = distance_text;
-            
         }
         console.log(vitesse_text);
     });
@@ -229,7 +228,6 @@ function add_listener_distance(){
         if(vitesse_text != "" && duree_min_text != "" && duree_sec_text != ""){
             distance_text = Math.round(parseInt(vitesse_text)*parseInt(duree_text)/3.6);
             document.getElementById("result").textContent = distance_text;
-            
         }
         console.log(vitesse_text);
     });
@@ -244,7 +242,6 @@ function add_listener_distance(){
         if(vitesse_text != "" && duree_min_text != "" && duree_sec_text != ""){
             distance_text = Math.round(parseInt(vitesse_text)*parseInt(duree_text)/3.6);
             document.getElementById("result").textContent = distance_text;
-            
         }
         console.log(vitesse_text);
     });
