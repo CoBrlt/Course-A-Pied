@@ -128,11 +128,24 @@ function add_listener_duree(){
         console.log(distance_text);
         console.log(vitesse_text);
         if(distance_text != "" && vitesse_text != ""){
-            duree_text = Math.round(distance_text*100/vitesse_text)/100;
-            document.getElementById("result").textContent = duree_text;
+            duree_text = Math.round(distance_text*100/(vitesse_text/3.6))/100;
+            document.getElementById("result").textContent = Math.floor(duree_text/60)+":"+duree_text % 60;
         }
         console.log(duree_text);
     });
+
+    document.getElementById("allure_input").addEventListener("change", function(){
+        distance_text = document.getElementById("distance_input").value;
+        vitesse_text = document.getElementById("allure_input").value;
+        console.log(distance_text);
+        console.log(vitesse_text);
+        if(distance_text != "" && vitesse_text != ""){
+            duree_text = Math.round(distance_text*100/(vitesse_text/3.6))/100;
+            document.getElementById("result").textContent = Math.floor(duree_text/60)+":"+duree_text % 60;
+        }
+        console.log(duree_text);
+    });
+
 }
 function add_listener_vitesse(){
     document.getElementById("distance_input").addEventListener("change", function(){
@@ -186,7 +199,7 @@ function add_listener_distance(){
         console.log(vitesse_text); 
         console.log(duree_text);
         if(vitesse_text != "" && duree_min_text != "" && duree_sec_text != ""){
-            distance_text = parseInt(vitesse_text)*parseInt(duree_text);
+            distance_text = Math.round(parseInt(vitesse_text)*parseInt(duree_text)/3.6);
             document.getElementById("result").textContent = distance_text;
             
         }
@@ -201,7 +214,7 @@ function add_listener_distance(){
         console.log(vitesse_text); 
         console.log(duree_text);
         if(vitesse_text != "" && duree_min_text != "" && duree_sec_text != ""){
-            distance_text = parseInt(vitesse_text)*parseInt(duree_text)/3.6;
+            distance_text = Math.round(parseInt(vitesse_text)*parseInt(duree_text)/3.6);
             document.getElementById("result").textContent = distance_text;
             
         }
@@ -216,7 +229,7 @@ function add_listener_distance(){
         console.log(vitesse_text); 
         console.log(duree_text);
         if(vitesse_text != "" && duree_min_text != "" && duree_sec_text != ""){
-            distance_text = parseInt(vitesse_text)*parseInt(duree_text)/3.6;
+            distance_text = Math.round(parseInt(vitesse_text)*parseInt(duree_text)/3.6);
             document.getElementById("result").textContent = distance_text;
             
         }
