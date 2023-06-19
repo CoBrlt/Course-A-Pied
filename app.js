@@ -59,6 +59,7 @@ document.getElementById("back_button").addEventListener("click", function(){
     display_by_id("affichage_vma");
     display_by_id("menu");
 });
+
 //display the menu
 display_by_id("affichage_vma");
 display_by_id("menu");
@@ -67,10 +68,10 @@ display_by_id("menu");
 Liste des choses à faire :
 
 - récupérer les données dans les différents champs
-- faire les calculs
-- faire un chronomètre
+- faire les calculs (ali)
+- faire un chronomètre (sneed)
 - fonction start stop et pause
 - fonction tour
-- le css à la fin (on aura un problème avec les blocks)
+- le css à la fin (on aura un problème avec les blocks) (debo et ali)
 - option héberger le site
 */
