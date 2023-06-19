@@ -14,13 +14,10 @@
 h1 {
   text-align: center;
   font-size: 50px;
+  font-family: 'agency-fb';
   color: black;
-  letter-spacing: 5px;
+  letter-spacing: 3px;
 }
-
-
-
-
 
 .menu_button img{
     width: 15%;
@@ -30,14 +27,4 @@ h1 {
     justify-content: center; /*Don't do anything?*/
     margin-right: 10px;
     padding: 5px;
-
     }
-
-/* img .menu_button {
-    
-    display: inline-block;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    
-  } */
