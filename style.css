@@ -1,6 +1,26 @@
-body {
-    background-color: rgb(208, 255, 208);
-  }
+:root{
+  --couleur-rouge-fonce: rgb(192,0,0);
+  --couleur-rouge-clair: rgb(246,217,217);
+  --couleur-vert-fonce: rgb(112,173,71);
+  --couleur-vert-clair: rgb(219,234,209);
+  --couleur-bleu-fonce: rgb(46,117,182);
+  --couleur-bleu-clair: rgb(214,230,244);
+  --couleur-jaune-fonce: rgb(191,144,0);
+  --couleur-jaune-clair: rgb(255,239,191);
+  --couleur-violet-fonce: rgb(112,48,160);
+  --couleur-violet-clair: rgb(234,224,241);
+}
+
+h1 {
+  text-align: center;
+  font-size: 50px;
+  color: black;
+  letter-spacing: 5px;
+}
+
+
+
+
 
 .menu_button {
     
