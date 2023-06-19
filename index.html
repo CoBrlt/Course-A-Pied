@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Course à pied</title>
-    <script src="./app.js"></script>
+    
 
 </head>
 <body>
-   
+
     <div id="affichage_vma" >
         <label for="vma">VMA :
             <input type="number" id="vma_input" name="vma">
@@ -16,17 +16,22 @@
     </div>
 
     <div id="calculator">
-        <label for="allure">Vitesse (km/h):
-            <input type="number" id="allure_input" name="allure">
-        </label>
+        <div id="allure_label_input">
+            <label for="allure">Vitesse (km/h):
+                <input type="number" id="allure_input" name="allure">
+            </label>
+        </div>
+        <div id="distance_label_input">
+            <label for="distance">Mètres (m):
+                <input type="number" id="distance_input" name="distance">
+            </label>
+        </div>
 
-        <label for="distance">Mètres (m):
-            <input type="number" id="distance_input" name="distance">
-        </label>
-
-        <label for="duree">Temps (min:sec):
-            <input type="number" id="duree_min_input" name="duree">:<input type="number" id="duree_sec_input" name="duree">
-        </label>
+        <div id="duree_label_input">
+            <label for="duree" >Temps (min:sec):
+                <input type="number" id="duree_min_input" name="duree">:<input type="number" id="duree_sec_input" name="duree">
+            </label>
+        </div>
         <p id="result"></p>
     </div>
 
@@ -69,6 +74,6 @@
 
     
 
-   
+    <script src="./app.js"></script>
 </body>
 </html>
