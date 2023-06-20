@@ -23,7 +23,6 @@ function hide_all () {
     }
 }
 
-//this function only work for image
 function display_by_id (id){
     console.log(id);
     const monElement = document.getElementById(id);
