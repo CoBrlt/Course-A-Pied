@@ -58,6 +58,7 @@ input{
 #informations img{
   width: 90vw;
   height: 90vw;
+  margin-left: 0vw;
 }
 
 /*Put the button in the bottom right corner, not matter where we scroll at*/
