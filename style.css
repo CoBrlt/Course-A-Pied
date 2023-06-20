@@ -86,3 +86,22 @@ input{
   display: inline-block;
 
 }
+@media only screen and (max-width: 600px) {
+
+
+  .menu_button{
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
+  .menu_button img{
+    width: 40vw;
+    height: 40vw;
+    float: left;
+    padding: 0.5vw;
+  }
+
+  #distance_button{
+    margin-left: 26%;
+
+  }
+}
