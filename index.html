@@ -36,7 +36,7 @@
 
     <div id="affichage_vma">
         <label for="vma">VMA :
-            <input type="number" id="vma_input" name="vma">
+            <input type="number" min="0" id="vma_input" name="vma">
         </label>
     </div> 
     
@@ -45,19 +45,19 @@
 
         <div id="allure_label_input">
             <label for="allure">Allure (min/km):
-                <input type="number" id="allure_input" name="allure">
+                <input type="number" min="0" id="allure_input" name="allure">
             </label>
         </div>
 
         <div id="distance_label_input">
             <label for="distance">Distance (m):
-                <input type="number" id="distance_input" name="distance">
+                <input type="number" min="0" id="distance_input" name="distance">
             </label>
         </div>
 
         <div id="duree_label_input">
             <label for="duree" >Durée (min:sec):
-                <input type="number" id="duree_min_input" name="duree">:<input type="number" id="duree_sec_input" name="duree">
+                <input type="number" min="0" id="duree_min_input" name="duree">:<input type="number" id="duree_sec_input" name="duree">
             </label>
         </div>
         <p id="result"></p>
