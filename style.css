@@ -16,7 +16,8 @@ body{
   color: black;
   font-size: 3vw;
   font-weight: bold;
-  margin-left: 6vw;
+  margin-right: 4vw;
+  margin-left: 4vw;
   text-align: center;
   align-items: center;
 }
@@ -54,6 +55,13 @@ input{
   float: left;
   padding: 0.5vw;
 }
+
+#difficulty img{
+  width: 30vw;
+  height: 30vw;
+  margin-left: 30vw;
+}
+
 
 #informations img{
   width: 90vw;

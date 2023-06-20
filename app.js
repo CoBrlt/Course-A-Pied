@@ -8,8 +8,9 @@ var duree_sec_text;
 var chrono_sec_text
 var chrono_min_text;
 var chrono_min_text;
-var allure_text;
+//var allure_text;
 var chrono_text;
+var vma_text;
 const sec = document.getElementById("time");
 let timer = 0;
 let isRunning = false;
@@ -140,6 +141,7 @@ document.getElementById("duree_button").addEventListener("click", function(){
     display_by_id("result_duree");
     hidden_by_id("result_vitesse");
     hidden_by_id("result_distance");
+    display_by_id("difficulty");
 });
 
 document.getElementById("vitesse_button").addEventListener("click", function(){
@@ -152,6 +154,7 @@ document.getElementById("vitesse_button").addEventListener("click", function(){
     display_by_id("result_vitesse");
     hidden_by_id("result_duree");
     hidden_by_id("result_distance");
+    display_by_id("difficulty");
 });
 
 document.getElementById("distance_button").addEventListener("click", function(){
@@ -164,6 +167,7 @@ document.getElementById("distance_button").addEventListener("click", function(){
     display_by_id("result_distance");
     hidden_by_id("result_duree");
     hidden_by_id("result_vitesse");    
+    display_by_id("difficulty");
 });
 
 document.getElementById("infos_button").addEventListener("click", function(){
@@ -172,6 +176,7 @@ document.getElementById("infos_button").addEventListener("click", function(){
     display_by_id("titre_infos");
     display_by_id("affichage_vma");
     display_by_id("back_button");
+    display_by_id("difficulty");
 });
 
 document.getElementById("back_button").addEventListener("click", function(){
@@ -189,6 +194,7 @@ document.getElementById("infos_button").addEventListener("click", function(){
     display_by_id("affichage_vma");
     display_by_id("informations");
     display_by_id("back_button");
+    display_by_id("difficulty");
 });
 
 //display the menu
@@ -313,6 +319,30 @@ function add_listener_distance(){
         console.log(vitesse_text);
     });
 }
+
+function get_vma_purcentage(){
+    let vma = document.getElementById("vma_input").value;
+    if(vma != ""){
+        console.log("vma :", vma);
+        console.log("vitesse_text :", vitesse_text);
+        let vma_purcentage = vitesse_text/vma*100;
+        return vma_purcentage;
+    }
+    return 0;
+
+    //TODo
+    //20-60% ==> afficher "zone 1 endurance fondamentale"
+    //60-75% ==> afficher "zone 2 : endurance active"
+    //78-85% ==> afficher "Zone 3 : tempo"
+    //85-95% ==> afficher "Zone 4 : vitesse aérobie"
+    //>95% ==> afficher "Zone 5 : vitesse vma"
+
+
+}
+
+
+
+
 
 // function add_listener_chrono(){
 //     document.getElementById("chrono_min_input").addEventListener("change", function(){
