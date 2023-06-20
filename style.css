@@ -18,6 +18,7 @@ body{
   font-weight: bold;
   margin: 3vw;
   text-align: center;
+  align-items: center;
 }
 
 #titre_chrono {background-color: var(--couleur-rouge-clair);}
@@ -26,14 +27,6 @@ body{
 #titre_distance {background-color: var(--couleur-vert-clair);}
 #titre_infos {background-color: var(--couleur-violet-clair);}
 
-
-
-
-
-img {
-  width: 7vw;
-  height: 7vw;
-}
 
 h1 {
   text-align: center;
@@ -59,23 +52,31 @@ input{
   width: 15vw;
   height: 15vw;
   float: left;
-  justify-content: center;
   padding: 0.5vw;
 }
 
 /*Put the button in the bottom right corner, not matter where we scroll at
 (well somehow it's left but why not after all...)*/
-#back_button {
+#back_button img {
+  width: 7vw;
+  height: 7vw;
   position: fixed;
   bottom: 0;
   right: 0;
   margin: 4vw;
 }
 
+
+/*chrono*/
 #chrono img{
+  margin-top: 5vw;
   width: 8vw;
   height: 8vw;
   float: right;
   padding: 0.5vw;
-  margin-top: 3vw;
+  
+}
+#time {
+  align-items: center;
+  background-color: gainsboro;
 }

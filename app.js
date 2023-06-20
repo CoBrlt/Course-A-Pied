@@ -70,8 +70,8 @@ hide_all();
 document.getElementById("chrono_button").addEventListener("click", function(){
     hide_all();
     display_by_id("titre_chrono");
-    display_by_id("chrono");
     sec.innerHTML = "00:00";
+    display_by_id("chrono");
     display_by_id("back_button");
 });
 
