@@ -8,7 +8,6 @@ var duree_sec_text;
 var chrono_sec_text
 var chrono_min_text;
 var chrono_min_text;
-//var allure_text;
 var chrono_text;
 var vma_text;
 const sec = document.getElementById("time");
@@ -24,6 +23,7 @@ function hide_all () {
     }
 }
 
+//this function only work for image
 function display_by_id (id){
     console.log(id);
     const monElement = document.getElementById(id);
@@ -328,14 +328,8 @@ function get_vma_purcentage(){
         let vma_purcentage = vitesse_text/vma*100;
         return vma_purcentage;
     }
-    return 0;
-
-    //TODo
-    //20-60% ==> afficher "zone 1 endurance fondamentale"
-    //60-75% ==> afficher "zone 2 : endurance active"
-    //78-85% ==> afficher "Zone 3 : tempo"
-    //85-95% ==> afficher "Zone 4 : vitesse aérobie"
-    //>95% ==> afficher "Zone 5 : vitesse vma"
+    //No VMA in input
+    return -1;
 
 
 }
@@ -371,14 +365,4 @@ function get_vma_purcentage(){
 //         }
 //     });
 // }
-/*
-Liste des choses à faire :
 
-- récupérer les données dans les différents champs
-- faire les calculs (ali)
-- faire un chronomètre (sneed)
-- fonction start stop et pause
-- fonction tour
-- le css à la fin (on aura un problème avec les blocks) (debo et elo)
-- option héberger le site
-*/
