@@ -5,10 +5,15 @@ var distance_text;
 var duree_text;
 var duree_min_text;
 var duree_sec_text;
+var chrono_sec_text
+var chrono_min_text;
+var chrono_min_text;
 var allure_text;
+var chrono_text;
 const sec = document.getElementById("time");
 let timer = 0;
 let isRunning = false;
+let countdown = false;
 let interval;
 
 function hide_all () {
@@ -45,7 +50,28 @@ function incrementTimer() {
     sec.innerHTML = pad(numberMin)+ ":" + pad(numberSec)+","+ pad(numbercent);
 }
 
-function resetChrono(){
+function decrementTimer() {
+    if(timer > 0){
+
+    timer--;
+
+    const numberMin = Math.floor(timer / 6000);
+    const numberSec = parseInt((timer % 6000)/100);
+    const numbercent = timer % 100;
+    sec.innerHTML = pad(numberMin)+ ":" + pad(numberSec)+","+ pad(numbercent);
+    }
+    else{
+        resetChrono();
+        countdown = false;
+    }
+}
+
+function startCountdown(){
+
+}
+
+function resetChrono()
+{
     if(isRunning) {
         isRunning = false;
         clearInterval(interval);
@@ -54,14 +80,38 @@ function resetChrono(){
     sec.innerHTML = "00:00";
 }
 
-function startChrono(){
-    if(isRunning) {
-        isRunning = false;
-        clearInterval(interval);
+function startChrono()
+{
+    chrono_min_text = document.getElementById("chrono_min_input").value
+    chrono_sec_text = document.getElementById("chrono_sec_input").value
+
+    if((chrono_min_text != "" && chrono_sec_text != "")){
+        sec.innerHTML = chrono_min_text+ ":" + chrono_sec_text;
+        countdown = true;
+
     }
+
+    if (!countdown){
+        if(isRunning) {
+            isRunning = false;
+            clearInterval(interval);
+        }
+        else{
+            isRunning = true;
+            interval = setInterval(incrementTimer, 10);
+        }
+    }
+    //countdown
     else{
-        isRunning = true;
-        interval = setInterval(incrementTimer, 10)
+            timer = (parseInt(chrono_min_text)*60 + parseInt(chrono_sec_text))*100;
+        if(isRunning) {
+            isRunning = false;
+            clearInterval(interval);
+        }
+        else{
+            isRunning = true;
+            interval = setInterval(decrementTimer, 10);
+        }
     }
 }
 
@@ -73,7 +123,12 @@ document.getElementById("chrono_button").addEventListener("click", function(){
     sec.innerHTML = "00:00";
     display_by_id("chrono");
     display_by_id("back_button");
+    //add_listener_chrono();
 });
+//chrono
+document.getElementById("start_pause_button").addEventListener("click", startChrono);
+document.getElementById("reset_tour_button").addEventListener("click", resetChrono);
+
 
 document.getElementById("duree_button").addEventListener("click", function(){
     hide_all();
@@ -118,11 +173,13 @@ document.getElementById("back_button").addEventListener("click", function(){
     display_by_id("menu");
 });
 
-//chrono
-document.getElementById("reset_tour_button").addEventListener("click", resetChrono);
-document.getElementById("start_pause_button").addEventListener("click", startChrono);
-
-
+document.getElementById("infos_button").addEventListener("click", function(){
+    hide_all();
+    //display the menu
+    display_by_id("titre_infos");
+    display_by_id("affichage_vma");
+    display_by_id("back_button");
+});
 
 //display the menu
 display_by_id("titre_menu");
@@ -138,7 +195,7 @@ function add_listener_duree(){
         console.log(vitesse_text);
         if(distance_text != "" && vitesse_text != ""){
             duree_text = Math.round(distance_text*100/(vitesse_text/3.6))/100;
-            document.getElementById("result").textContent = Math.floor(duree_text/60)+":"+duree_text % 60;
+            document.getElementById("result").textContent = Math.floor(duree_text/60)+":"+ Math.floor(duree_text % 60);
         }
         console.log(duree_text);
     });
@@ -150,7 +207,7 @@ function add_listener_duree(){
         console.log(vitesse_text);
         if(distance_text != "" && vitesse_text != ""){
             duree_text = Math.round(distance_text*100/(vitesse_text/3.6))/100;
-            document.getElementById("result").textContent = Math.floor(duree_text/60)+":"+duree_text % 60;
+            document.getElementById("result").textContent = Math.floor(duree_text/60)+":" + Math.floor(duree_text % 60);
         }
         console.log(duree_text);
     });
@@ -246,6 +303,34 @@ function add_listener_distance(){
         console.log(vitesse_text);
     });
 }
+
+// function add_listener_chrono(){
+//     document.getElementById("chrono_min_input").addEventListener("change", function(){
+//         chrono_min_text = document.getElementById("chrono_min_input").value;
+//         chrono_sec_text = document.getElementById("chrono_sec_input").value;
+//         console.log(chrono_min_text);
+//         console.log(chrono_sec_text);
+//         if(chrono_min_text != "" && chrono_sec_text != ""){
+//             resetChrono();
+//             timer = (parseInt(chrono_min_text)*60 + parseInt(chrono_sec_text))*100;
+//             sec.innerHTML = chrono_min_text+ ":" + chrono_sec_text;
+//         }
+//     });
+
+//     document.getElementById("chrono_sec_input").addEventListener("change", function(){
+//         chrono_min_text = document.getElementById("chrono_min_input").value;
+//         chrono_sec_text = document.getElementById("chrono_sec_input").value;
+//         console.log(chrono_min_text);
+//         console.log(chrono_sec_text);
+//         if(chrono_min_text != "" && chrono_sec_text != ""){
+//             resetChrono();
+//             timer = (parseInt(chrono_min_text)*60 + parseInt(chrono_sec_text))*100;
+//         }
+//         else{
+
+//         }
+//     });
+// }
 /*
 Liste des choses à faire :
 
