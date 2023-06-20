@@ -55,11 +55,15 @@ input{
   padding: 0.5vw;
 }
 
-/*Put the button in the bottom right corner, not matter where we scroll at
-(well somehow it's left but why not after all...)*/
+#informations img{
+  width: 90vw;
+  height: 90vw;
+}
+
+/*Put the button in the bottom right corner, not matter where we scroll at*/
 #back_button img {
-  width: 7vw;
-  height: 7vw;
+  width: 9vw;
+  height: 9vw;
   position: fixed;
   bottom: 0;
   right: 0;

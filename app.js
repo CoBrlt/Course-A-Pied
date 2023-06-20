@@ -187,6 +187,7 @@ document.getElementById("infos_button").addEventListener("click", function(){
     //display the menu
     display_by_id("titre_infos");
     display_by_id("affichage_vma");
+    display_by_id("informations");
     display_by_id("back_button");
 });
 
