@@ -16,7 +16,7 @@ body{
   color: black;
   font-size: 3vw;
   font-weight: bold;
-  margin: 3vw;
+  margin-left: 6vw;
   text-align: center;
   align-items: center;
 }
@@ -74,8 +74,8 @@ input{
   height: 8vw;
   float: right;
   padding: 0.5vw;
-  
 }
+
 #time {
   align-items: center;
   background-color: gainsboro;
@@ -88,11 +88,6 @@ input{
 }
 @media only screen and (max-width: 600px) {
 
-
-  .menu_button{
-    margin-top: 50px;
-    margin-bottom: 50px;
-  }
   .menu_button img{
     width: 40vw;
     height: 40vw;
@@ -100,8 +95,43 @@ input{
     padding: 0.5vw;
   }
 
+  #back_button img {
+    width: 20vw;
+    height: 20vw;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    margin: 5vw;
+  }
+
   #distance_button{
     margin-left: 26%;
+  }
 
+  h1 {
+    text-align: center;
+    font-size: 8vw;
+    letter-spacing: 0.7vw;
+  }
+
+  body{
+    font-size: 5vw;
+    font-weight: bold;
+    text-align: center;
+    align-items: center;
+    margin-left: 4vw;
+  }
+
+  input{
+    background-color:#ccc;
+    padding: 2vw;
+    border: 2px solid black;
+    border-radius: 5vw;
+    font-size: 4vw;
+    width: 16%;
+  }
+
+  #chrono img{
+    margin-top: 10vw;
   }
 }
