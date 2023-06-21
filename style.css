@@ -89,6 +89,11 @@ input{
   padding: 0.5vw;
 }
 
+#allure_label_input{
+  display: flex;
+}
+
+
 #time {
   align-items: center;
   background-color: gainsboro;
@@ -97,8 +102,16 @@ input{
   border: 1px solid black;
   font-size: 5vw;
   display: inline-block;
-
 }
+
+#button_change_unity{
+  width: 5vw;
+}
+
+#img_button_change_unity{
+  width: 8vw;
+}
+
 @media only screen and (max-width: 600px) {
 
   .menu_button img{
@@ -142,9 +155,22 @@ input{
     border-radius: 5vw;
     font-size: 4vw;
     width: 16%;
+    text-align: center;
   }
 
   #chrono img{
     margin-top: 10vw;
+  }
+
+  #vma_input{
+    width : 40vw;
+  }
+
+  #button_change_unity{
+    width: 10vw;
+  }
+  
+  #img_button_change_unity{
+    width: 18vw;
   }
 }
