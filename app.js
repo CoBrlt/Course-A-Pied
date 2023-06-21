@@ -345,34 +345,3 @@ function calc_sneed(){
         }
         console.log(duree_text);
 }
-
-
-
-// function add_listener_chrono(){
-//     document.getElementById("chrono_min_input").addEventListener("change", function(){
-//         chrono_min_text = document.getElementById("chrono_min_input").value;
-//         chrono_sec_text = document.getElementById("chrono_sec_input").value;
-//         console.log(chrono_min_text);
-//         console.log(chrono_sec_text);
-//         if(chrono_min_text != "" && chrono_sec_text != ""){
-//             resetChrono();
-//             timer = (parseInt(chrono_min_text)*60 + parseInt(chrono_sec_text))*100;
-//             sec.innerHTML = chrono_min_text+ ":" + chrono_sec_text;
-//         }
-//     });
-
-//     document.getElementById("chrono_sec_input").addEventListener("change", function(){
-//         chrono_min_text = document.getElementById("chrono_min_input").value;
-//         chrono_sec_text = document.getElementById("chrono_sec_input").value;
-//         console.log(chrono_min_text);
-//         console.log(chrono_sec_text);
-//         if(chrono_min_text != "" && chrono_sec_text != ""){
-//             resetChrono();
-//             timer = (parseInt(chrono_min_text)*60 + parseInt(chrono_sec_text))*100;
-//         }
-//         else{
-
-//         }
-//     });
-// }
-
