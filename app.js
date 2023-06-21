@@ -24,7 +24,7 @@ function hide_all () {
 }
 
 function display_by_id (id){
-    console.log(id);
+    //console.log(id);
     const monElement = document.getElementById(id);
     monElement.style.display = "block";
     if (monElement.children.length != 1){
@@ -140,7 +140,7 @@ document.getElementById("duree_button").addEventListener("click", function(){
     display_by_id("result_duree");
     hidden_by_id("result_vitesse");
     hidden_by_id("result_distance");
-    display_by_id("difficulty");
+    //display_by_id("difficulty");
 });
 
 document.getElementById("vitesse_button").addEventListener("click", function(){
@@ -153,7 +153,7 @@ document.getElementById("vitesse_button").addEventListener("click", function(){
     display_by_id("result_vitesse");
     hidden_by_id("result_duree");
     hidden_by_id("result_distance");
-    display_by_id("difficulty");
+    //display_by_id("difficulty");
 });
 
 document.getElementById("distance_button").addEventListener("click", function(){
@@ -166,7 +166,7 @@ document.getElementById("distance_button").addEventListener("click", function(){
     display_by_id("result_distance");
     hidden_by_id("result_duree");
     hidden_by_id("result_vitesse");    
-    display_by_id("difficulty");
+    //display_by_id("difficulty");
 });
 
 document.getElementById("infos_button").addEventListener("click", function(){
@@ -175,7 +175,7 @@ document.getElementById("infos_button").addEventListener("click", function(){
     display_by_id("titre_infos");
     display_by_id("affichage_vma");
     display_by_id("back_button");
-    display_by_id("difficulty");
+    //display_by_id("difficulty");
 });
 
 document.getElementById("back_button").addEventListener("click", function(){
@@ -193,7 +193,6 @@ document.getElementById("infos_button").addEventListener("click", function(){
     display_by_id("affichage_vma");
     display_by_id("informations");
     display_by_id("back_button");
-    display_by_id("difficulty");
 });
 
 //display the menu
@@ -201,167 +200,108 @@ display_by_id("titre_menu");
 display_by_id("affichage_vma");
 display_by_id("menu");
 
-
-function add_listener_duree(){
-    document.getElementById("distance_input").addEventListener("change", function(){
-        distance_text = document.getElementById("distance_input").value;
-        vitesse_text = document.getElementById("allure_input").value;
-        console.log(distance_text);
-        console.log(vitesse_text);
-        if(distance_text != "" && vitesse_text != ""){
-            duree_text = Math.round(distance_text*100/(vitesse_text/3.6))/100;
-            document.getElementById("result_duree").textContent ="Durée = "+ Math.floor(duree_text/60)+" : "+pad(Math.floor(duree_text % 60) +" (min:sec)") ;
+function display_vma_difficulty(vma){
+    if(vma != -1){
+        //je sais pas
+        display_by_id("difficulty");
+        document.getElementById("text_difficulty").textContent = "Voici le niveau de difficulté correspondant : " + Math.round(vma) + "%";
+        if(vma < 59){
+            hidden_by_id("difficulty_lvl2");
+            hidden_by_id("difficulty_lvl3");
+            hidden_by_id("difficulty_lvl4");
+            hidden_by_id("difficulty_lvl5");
+        }else if(vma < 74){
+            hidden_by_id("difficulty_lvl1");
+            hidden_by_id("difficulty_lvl3");
+            hidden_by_id("difficulty_lvl4");
+            hidden_by_id("difficulty_lvl5");
+        }else if(vma < 84){
+            hidden_by_id("difficulty_lvl1");
+            hidden_by_id("difficulty_lvl2");
+            hidden_by_id("difficulty_lvl4");
+            hidden_by_id("difficulty_lvl5");
+        }else if(vma < 94){
+            hidden_by_id("difficulty_lvl1");
+            hidden_by_id("difficulty_lvl2");
+            hidden_by_id("difficulty_lvl3");
+            hidden_by_id("difficulty_lvl5");
+        }else{
+            hidden_by_id("difficulty_lvl1");
+            hidden_by_id("difficulty_lvl2");
+            hidden_by_id("difficulty_lvl3");
+            hidden_by_id("difficulty_lvl4");
         }
-        console.log(duree_text);
-    });
-
-    document.getElementById("allure_input").addEventListener("change", function(){
-        distance_text = document.getElementById("distance_input").value;
-        vitesse_text = document.getElementById("allure_input").value;
-        console.log(distance_text);
-        console.log(vitesse_text);
-        if(distance_text != "" && vitesse_text != ""){
-            duree_text = Math.round(distance_text*100/(vitesse_text/3.6))/100;
-            document.getElementById("result_duree").textContent = "Durée = "+ pad( Math.floor(duree_text/60)+" : "+Math.floor(duree_text % 60) +" (min:sec)") ;
-        }
-        console.log(duree_text);
-    });
-
+    }else{
+        hidden_by_id("difficulty");
+    }
 }
 
+function calc_duree(){
+    distance_text = document.getElementById("distance_input").value;
+    vitesse_text = document.getElementById("allure_input").value;
+    if(distance_text != "" && vitesse_text != ""){
+        duree_text = Math.round(distance_text*100/(vitesse_text/3.6))/100;
+        document.getElementById("result_duree").textContent = "Durée = "+ pad( Math.floor(duree_text/60)+" : "+Math.floor(duree_text % 60) +" (min:sec)") ;
+        // document.getElementById("result_duree").textContent ="Durée = "+ Math.floor(duree_text/60)+" : "+pad(Math.floor(duree_text % 60) +" (min:sec)") ;
+    }
+}
+
+function calc_vitesse(){
+    distance_text = document.getElementById("distance_input").value;
+    duree_min_text = document.getElementById("duree_min_input").value;
+    duree_sec_text= document.getElementById("duree_sec_input").value;
+    duree_text = parseInt(duree_min_text)*60 + parseInt(duree_sec_text);
+    if(distance_text != "" && duree_min_text != "" && duree_sec_text != ""){
+        vitesse_text = Math.round(distance_text*3.6*100/duree_text)/100;
+        document.getElementById("result_vitesse").textContent = "Vitesse = "+ vitesse_text + "km/h";
+        let vma = get_vma_purcentage();
+        display_vma_difficulty(vma);
+    }
+}
+
+function calc_distance(){
+    vitesse_text = document.getElementById("allure_input").value;
+    duree_min_text = document.getElementById("duree_min_input").value;
+    duree_sec_text= document.getElementById("duree_sec_input").value;
+    duree_text = parseInt(duree_min_text)*60 + parseInt(duree_sec_text);
+    if(vitesse_text != "" && duree_min_text != "" && duree_sec_text != ""){
+        distance_text = Math.round(parseInt(vitesse_text)*parseInt(duree_text)/3.6);
+        document.getElementById("result_distance").textContent = "Distance = "+distance_text+" m";
+    }
+}
+
+function add_listener_duree(){
+    document.getElementById("distance_input").addEventListener("keyup", calc_duree);
+    document.getElementById("allure_input").addEventListener("keyup", calc_duree);
+}
 
 function add_listener_vitesse(){
-    document.getElementById("distance_input").addEventListener("change", function(){
-        distance_text = document.getElementById("distance_input").value;
-        duree_min_text = document.getElementById("duree_min_input").value;
-        duree_sec_text= document.getElementById("duree_sec_input").value;
-        duree_text = parseInt(duree_min_text)*60 + parseInt(duree_sec_text);
-        console.log(distance_text); 
-        console.log(duree_text);
-        if(distance_text != "" && duree_min_text != "" && duree_sec_text != ""){
-            vitesse_text = Math.round(distance_text*3.6*100/duree_text)/100;
-            document.getElementById("result_vitesse").textContent = "Vitesse = "+ vitesse_text + "km/h";
-        }
-        console.log(vitesse_text);
-    });
-
-    document.getElementById("duree_min_input").addEventListener("change", function(){
-        distance_text = document.getElementById("distance_input").value;
-        duree_min_text = document.getElementById("duree_min_input").value;
-        duree_sec_text= document.getElementById("duree_sec_input").value;
-        duree_text = parseInt(duree_min_text)*60 + parseInt(duree_sec_text);
-        console.log(distance_text); 
-        console.log(duree_text);
-        if(distance_text != "" && duree_min_text != "" && duree_sec_text != ""){
-            vitesse_text = Math.round(distance_text*3.6*100/duree_text)/100;
-            document.getElementById("result_vitesse").textContent = "Vitesse = "+ vitesse_text + "km/h";
-        }
-        console.log(vitesse_text);
-    });
-
-    document.getElementById("duree_sec_input").addEventListener("change", function(){
-        distance_text = document.getElementById("distance_input").value;
-        duree_min_text = document.getElementById("duree_min_input").value;
-        duree_sec_text= document.getElementById("duree_sec_input").value;
-        duree_text = parseInt(duree_min_text)*60 + parseInt(duree_sec_text);
-        console.log(distance_text); 
-        console.log(duree_text);
-        if(distance_text != "" && duree_min_text != "" && duree_sec_text != ""){
-            vitesse_text = Math.round(distance_text*3.6*100/duree_text)/100;
-            document.getElementById("result_vitesse").textContent = "Vitesse = "+ vitesse_text + "km/h";
-        }
-        console.log(vitesse_text);
-    });
+    document.getElementById("distance_input").addEventListener("keyup", calc_vitesse);
+    document.getElementById("duree_min_input").addEventListener("keyup", calc_vitesse);
+    document.getElementById("duree_sec_input").addEventListener("keyup", calc_vitesse);
 }
 
 
 function add_listener_distance(){
-    document.getElementById("allure_input").addEventListener("change", function(){
-        vitesse_text = document.getElementById("allure_input").value;
-        duree_min_text = document.getElementById("duree_min_input").value;
-        duree_sec_text= document.getElementById("duree_sec_input").value;
-        duree_text = parseInt(duree_min_text)*60 + parseInt(duree_sec_text);
-        console.log(vitesse_text); 
-        console.log(duree_text);
-        if(vitesse_text != "" && duree_min_text != "" && duree_sec_text != ""){
-            distance_text = Math.round(parseInt(vitesse_text)*parseInt(duree_text)/3.6);
-            document.getElementById("result_distance").textContent = "Distance = "+distance_text+" km";
-        }
-        console.log(vitesse_text);
-    });
-
-    document.getElementById("duree_min_input").addEventListener("change", function(){
-        vitesse_text = document.getElementById("allure_input").value;
-        duree_min_text = document.getElementById("duree_min_input").value;
-        duree_sec_text= document.getElementById("duree_sec_input").value;
-        duree_text = parseInt(duree_min_text)*60 + parseInt(duree_sec_text);
-        console.log(vitesse_text); 
-        console.log(duree_text);
-        if(vitesse_text != "" && duree_min_text != "" && duree_sec_text != ""){
-            distance_text = Math.round(parseInt(vitesse_text)*parseInt(duree_text)/3.6);
-            document.getElementById("result_distance").textContent = "Distance = "+distance_text+" m";
-        }
-        console.log(vitesse_text);
-    });
-
-    document.getElementById("duree_sec_input").addEventListener("change", function(){
-        vitesse_text = document.getElementById("allure_input").value;
-        duree_min_text = document.getElementById("duree_min_input").value;
-        duree_sec_text= document.getElementById("duree_sec_input").value;
-        duree_text = parseInt(duree_min_text)*60 + parseInt(duree_sec_text);
-        console.log(vitesse_text); 
-        console.log(duree_text);
-        if(vitesse_text != "" && duree_min_text != "" && duree_sec_text != ""){
-            distance_text = Math.round(parseInt(vitesse_text)*parseInt(duree_text)/3.6);
-            document.getElementById("result_distance").textContent = "Distance = "+distance_text+" m";
-        }
-        console.log(vitesse_text);
-    });
+    document.getElementById("allure_input").addEventListener("keyup", calc_distance);
+    document.getElementById("duree_min_input").addEventListener("keyup", calc_distance);
+    document.getElementById("duree_sec_input").addEventListener("keyup", calc_distance);
 }
+
+
+document.getElementById("allure_input").addEventListener("keyup", function(){
+    vitesse_text = document.getElementById("allure_input").value;
+    let vma = get_vma_purcentage();
+    // console.log(vma);
+    // console.log(vitesse_text)
+    display_vma_difficulty(vma);
+});
 
 function get_vma_purcentage(){
     let vma = document.getElementById("vma_input").value;
     if(vma != ""){
-        console.log("vma :", vma);
-        console.log("vitesse_text :", vitesse_text);
         let vma_purcentage = vitesse_text/vma*100;
         return vma_purcentage;
     }
-    //No VMA in input
     return -1;
-
-
 }
-
-
-
-
-
-// function add_listener_chrono(){
-//     document.getElementById("chrono_min_input").addEventListener("change", function(){
-//         chrono_min_text = document.getElementById("chrono_min_input").value;
-//         chrono_sec_text = document.getElementById("chrono_sec_input").value;
-//         console.log(chrono_min_text);
-//         console.log(chrono_sec_text);
-//         if(chrono_min_text != "" && chrono_sec_text != ""){
-//             resetChrono();
-//             timer = (parseInt(chrono_min_text)*60 + parseInt(chrono_sec_text))*100;
-//             sec.innerHTML = chrono_min_text+ ":" + chrono_sec_text;
-//         }
-//     });
-
-//     document.getElementById("chrono_sec_input").addEventListener("change", function(){
-//         chrono_min_text = document.getElementById("chrono_min_input").value;
-//         chrono_sec_text = document.getElementById("chrono_sec_input").value;
-//         console.log(chrono_min_text);
-//         console.log(chrono_sec_text);
-//         if(chrono_min_text != "" && chrono_sec_text != ""){
-//             resetChrono();
-//             timer = (parseInt(chrono_min_text)*60 + parseInt(chrono_sec_text))*100;
-//         }
-//         else{
-
-//         }
-//     });
-// }
-
