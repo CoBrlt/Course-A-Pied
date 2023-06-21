@@ -59,9 +59,8 @@ input{
 #difficulty img{
   width: 30vw;
   height: 30vw;
-  margin-left: 5vw;
+  margin-left: 25vw;
 }
-
 
 #informations img{
   width: 90vw;
@@ -83,9 +82,9 @@ input{
 /*chrono*/
 #chrono img{
   margin-top: 5vw;
-  width: 8vw;
-  height: 8vw;
-  float: right;
+  width: 9vw;
+  height: 9vw;
+  float: left;
   padding: 0.5vw;
 }
 
@@ -104,13 +103,16 @@ input{
   display: inline-block;
 }
 
-#button_change_unity{
-  width: 5vw;
+#button_change_unity img{
+  width: 23vw;
+  height: 13vw;
+  margin-right: 5vw;
 }
 
-#img_button_change_unity{
+
+/* #img_button_change_unity{
   width: 8vw;
-}
+} */
 
 @media only screen and (max-width: 600px) {
 
@@ -119,6 +121,8 @@ input{
     height: 40vw;
     float: left;
     padding: 0.5vw;
+    -ms-transform: translate(-0%, -50%);
+    transform: translate(-0%, 60%);
   }
 
   #back_button img {
@@ -160,6 +164,8 @@ input{
 
   #chrono img{
     margin-top: 10vw;
+    width: 17vw;
+    height: 17vw;    
   }
 
   #vma_input{
@@ -168,9 +174,13 @@ input{
 
   #button_change_unity{
     width: 10vw;
+    margin-right: 10vw;
+
   }
   
   #img_button_change_unity{
     width: 18vw;
+    -ms-transform: translate(120%, 0%);
+    transform: translate(120%, 0%);
   }
 }
