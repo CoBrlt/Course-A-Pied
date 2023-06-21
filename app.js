@@ -233,7 +233,7 @@ function display_vma_difficulty(vma){
         hidden_by_id("difficulty");
     }
 }
-gi
+
 
 function add_listener_vitesse(){
     document.getElementById("distance_input").addEventListener("keyup", calc_vitesse);
