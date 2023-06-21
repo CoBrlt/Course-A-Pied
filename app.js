@@ -146,6 +146,7 @@ document.getElementById("vitesse_button").addEventListener("click", function(){
     display_by_id("calculator");
     display_by_id("back_button");
     hidden_by_id("allure_label_input");
+    hidden_by_id("button_change_unity");
     add_listener_vitesse();
     display_by_id("result_vitesse");
     hidden_by_id("result_duree");
@@ -232,15 +233,37 @@ function display_vma_difficulty(vma){
         hidden_by_id("difficulty");
     }
 }
+gi
 
-// function add_listener_duree(){
-//     document.getElementById("distance_input").addEventListener("keyup", calc_duree);
-//     document.getElementById("allure_input").addEventListener("keyup", calc_duree);
-// }
+function add_listener_vitesse(){
+    document.getElementById("distance_input").addEventListener("keyup", calc_vitesse);
+    document.getElementById("duree_min_input").addEventListener("keyup", calc_vitesse);
+    document.getElementById("duree_sec_input").addEventListener("keyup", calc_vitesse);
+}
+
+
+function add_listener_distance(){
+    document.getElementById("duree_min_input").addEventListener("keyup", calc_distance);
+    document.getElementById("duree_sec_input").addEventListener("keyup", calc_distance);
+    document.getElementById("allure_input").addEventListener("keyup", calc_distance);
+
+    document.getElementById("button_change_unity").addEventListener("click", function(){
+        if(unity_kmh){
+            document.getElementById("unity").innerHTML = "Allure (min/km): " + '<input type="number" min="0" id="allure_input" name="allure">:' + '<input type="number" min="0" id="allure_input_sec" name="allure">';
+            unity_kmh = false;
+            document.getElementById("allure_input_sec").addEventListener("keyup", calc_distance);
+
+        }
+        else{
+            document.getElementById("unity").innerHTML = "Allure (km/h): " + '<input type="number" min="0" id="allure_input" name="allure">';
+            unity_kmh = true;
+        }
+
+        document.getElementById("allure_input").addEventListener("keyup", calc_distance);
+    });
+}
 
 function add_listener_duree(){
-    document.getElementById("distance_input").addEventListener("keyup", calc_duree);
-    document.getElementById("allure_input").addEventListener("keyup", calc_duree);
     
     document.getElementById("distance_input").addEventListener("keyup", calc_sneed);
 
@@ -287,29 +310,25 @@ function calc_vitesse(){
 }
 
 function calc_distance(){
-    vitesse_text = document.getElementById("allure_input").value;
     duree_min_text = document.getElementById("duree_min_input").value;
     duree_sec_text= document.getElementById("duree_sec_input").value;
+    vitesse_text = document.getElementById("allure_input").value;
+    if(!unity_kmh){
+                vitesse_text = parseInt(document.getElementById("allure_input").value) + (document.getElementById("allure_input_sec").value) / 60;
+    }
     duree_text = parseInt(duree_min_text)*60 + parseInt(duree_sec_text);
     if(vitesse_text != "" && duree_min_text != "" && duree_sec_text != ""){
+        if(unity_kmh){
         distance_text = Math.round(parseInt(vitesse_text)*parseInt(duree_text)/3.6);
+        }
+        else{
+            distance_text = Maths.round(duree_text / vitesse_text * (1000/60));
+        }
         document.getElementById("result_distance").textContent = "Distance = "+distance_text+" m";
     }
 }
 
 
-function add_listener_vitesse(){
-    document.getElementById("distance_input").addEventListener("keyup", calc_vitesse);
-    document.getElementById("duree_min_input").addEventListener("keyup", calc_vitesse);
-    document.getElementById("duree_sec_input").addEventListener("keyup", calc_vitesse);
-}
-
-
-function add_listener_distance(){
-    document.getElementById("allure_input").addEventListener("keyup", calc_distance);
-    document.getElementById("duree_min_input").addEventListener("keyup", calc_distance);
-    document.getElementById("duree_sec_input").addEventListener("keyup", calc_distance);
-}
 
 
 document.getElementById("allure_input").addEventListener("keyup", function(){
