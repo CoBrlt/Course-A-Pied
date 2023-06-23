@@ -97,7 +97,7 @@ function startChrono()
             interval = setInterval(incrementTimer, 10);
         }
     }
-    //countdown
+
     else{
             timer = (parseInt(chrono_min_text)*60 + parseInt(chrono_sec_text))*100;
         if(isRunning) {
@@ -127,6 +127,7 @@ document.getElementById("reset_tour_button").addEventListener("click", resetChro
 
 document.getElementById("duree_button").addEventListener("click", function(){
     hide_all();
+    
     display_by_id("titre_duree");
     display_by_id("calculator");
     display_by_id("back_button");
@@ -134,8 +135,10 @@ document.getElementById("duree_button").addEventListener("click", function(){
     display_by_id("result_duree");
     hidden_by_id("result_vitesse");
     hidden_by_id("result_distance");
+    if(!unity_kmh){
+        document.getElementById("unity").innerHTML = "Allure (min/km): " + '<input type="number" min="0" id="allure_input" name="allure">:' + '<input type="number" min="0" id="allure_input_sec" name="allure">';
+    }
     add_listener_duree();
-    //display_by_id("difficulty");
 });
 
 document.getElementById("vitesse_button").addEventListener("click", function(){
@@ -149,7 +152,6 @@ document.getElementById("vitesse_button").addEventListener("click", function(){
     hidden_by_id("result_duree");
     hidden_by_id("result_distance");
     add_listener_vitesse();
-    //display_by_id("difficulty");
 });
 
 document.getElementById("distance_button").addEventListener("click", function(){
@@ -160,14 +162,17 @@ document.getElementById("distance_button").addEventListener("click", function(){
     hidden_by_id("distance_label_input");
     display_by_id("result_distance");
     hidden_by_id("result_duree");
-    hidden_by_id("result_vitesse");    
+    hidden_by_id("result_vitesse");
+    
+    if(!unity_kmh){
+        document.getElementById("unity").innerHTML = "Allure (min/km): " + '<input type="number" min="0" id="allure_input" name="allure">:' + '<input type="number" min="0" id="allure_input_sec" name="allure">';
+    }
+
     add_listener_distance();
-    //display_by_id("difficulty");
 });
 
 document.getElementById("back_button").addEventListener("click", function(){
     hide_all();
-    //display the menu
     display_by_id("titre_menu");
     display_by_id("affichage_vma");
     display_by_id("menu");
@@ -175,7 +180,6 @@ document.getElementById("back_button").addEventListener("click", function(){
 
 document.getElementById("infos_button").addEventListener("click", function(){
     hide_all();
-    //display the menu
     display_by_id("calculator");
     display_by_id("titre_infos");
     display_by_id("affichage_vma");
@@ -190,14 +194,12 @@ document.getElementById("infos_button").addEventListener("click", function(){
     display_by_id("back_button");
 });
 
-//display the menu
 display_by_id("titre_menu");
 display_by_id("affichage_vma");
 display_by_id("menu");
 
 function display_vma_difficulty(vma){
     if(vma != -1){
-        //je sais pas
         display_by_id("difficulty");
         document.getElementById("text_difficulty").textContent = "Voici le niveau de difficulté correspondant : " + Math.round(vma) + "%";
         if(vma < 59){
@@ -239,7 +241,7 @@ function add_listener_vitesse(){
 }
 
 function eventClickDistance(){
-    console.log("distance");
+    
     if(unity_kmh){
         document.getElementById("unity").innerHTML = "Allure (min/km): " + '<input type="number" min="0" id="allure_input" name="allure">:' + '<input type="number" min="0" id="allure_input_sec" name="allure">';
         unity_kmh = false;
@@ -247,14 +249,14 @@ function eventClickDistance(){
 
         document.getElementById("allure_input_sec").addEventListener("keyup", function(){
             vitesse_text = 60 / (parseFloat(((document.getElementById("allure_input").value))) + parseFloat(((document.getElementById("allure_input_sec").value)/60)));
-            console.log(vitesse_text);
+            
             let vma = get_vma_purcentage();
             display_vma_difficulty(vma);
         });
 
         document.getElementById("allure_input").addEventListener("keyup", function(){
             vitesse_text = 60 / (parseFloat(((document.getElementById("allure_input").value))) + parseFloat(((document.getElementById("allure_input_sec").value)/60)));
-            console.log(vitesse_text);
+            
             let vma = get_vma_purcentage();
             display_vma_difficulty(vma);
         });
@@ -269,7 +271,7 @@ function eventClickDistance(){
 }
 
 function eventClickDuree(){
-    console.log("duree");
+    
     if(unity_kmh){
         document.getElementById("unity").innerHTML = "Allure (min/km): " + '<input type="number" min="0" id="allure_input" name="allure">:' + '<input type="number" min="0" id="allure_input_sec" name="allure">';
         unity_kmh = false;
@@ -277,14 +279,14 @@ function eventClickDuree(){
 
         document.getElementById("allure_input_sec").addEventListener("keyup", function(){
             vitesse_text = 60 / (parseFloat(((document.getElementById("allure_input").value))) + parseFloat(((document.getElementById("allure_input_sec").value)/60)));
-            console.log(vitesse_text);
+            
             let vma = get_vma_purcentage();
             display_vma_difficulty(vma);
         });
 
         document.getElementById("allure_input").addEventListener("keyup", function(){
             vitesse_text = 60 / (parseFloat(((document.getElementById("allure_input").value))) + parseFloat(((document.getElementById("allure_input_sec").value)/60)));
-            console.log(vitesse_text);
+            
             let vma = get_vma_purcentage();
             display_vma_difficulty(vma);
         });
@@ -387,8 +389,8 @@ function calc_sneed(){
     if(!unity_kmh){
         vitesse_text = parseInt(document.getElementById("allure_input").value) + (document.getElementById("allure_input_sec").value) / 60;
     }
-    console.log(distance_text);
-    console.log(vitesse_text);
+    
+    
     if(distance_text != "" && vitesse_text != ""){
         if(unity_kmh){
             duree_text = Math.round((distance_text*100/(vitesse_text/3.6)))/100;
@@ -398,11 +400,6 @@ function calc_sneed(){
         }
         document.getElementById("result_duree").textContent = "Durée = "+  Math.floor(duree_text/60)+" : "+pad(Math.floor(duree_text % 60)) +" (min:sec)" ;
     }
-    console.log(duree_text);
+    
 }
 
-/*
-Liste des bugs :
-quand y a allure min:sec dans durée ça fait pas la vma
-quand on switch distance et duree alors le switch allure du deuxième ne fonctionnera pas
-*/
