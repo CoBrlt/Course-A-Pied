@@ -180,6 +180,8 @@ document.getElementById("back_button").addEventListener("click", function(){
 
 document.getElementById("infos_button").addEventListener("click", function(){
     hide_all();
+    document.getElementById("unity").innerHTML = "Allure (km/h): " + '<input type="number" min="0" id="allure_input" name="allure">';
+    add_listener_allure_vma();
     display_by_id("calculator");
     display_by_id("titre_infos");
     display_by_id("affichage_vma");
