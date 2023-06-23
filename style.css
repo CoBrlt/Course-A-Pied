@@ -183,4 +183,10 @@ input{
     -ms-transform: translate(120%, 0%);
     transform: translate(120%, 0%);
   }
+
+  #difficulty img{
+    width: 30vw;
+    height: 30vw;
+    margin-left: 27vw;
+  }
 }
