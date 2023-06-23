@@ -117,8 +117,8 @@ input{
 @media only screen and (max-width: 600px) {
 
   .menu_button img{
-    width: 40vw;
-    height: 40vw;
+    width: 39vw;
+    height: 39vw;
     float: left;
     padding: 0.5vw;
     -ms-transform: translate(-0%, -50%);
